@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Aluno</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Novo Aluno</h1>
+        <form method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="matricula">Matrícula:</label>
+            <input type="text" id="matricula" name="matricula" required>
+            <label for="curso_id">Curso:</label>
+            <select id="curso_id" name="curso_id" required>
+                <option value="">Selecione o curso</option>
+                {% for curso in cursos %}
+                <option value="{{ curso.id }}">{{ curso.nome }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Salvar">
+        </form>
+        <a href="{{ url_for('listar_alunos') }}">Voltar</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

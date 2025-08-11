@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade Avaliativa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Projeto CRUD</h1>
+        <p>Escolha uma opção:</p>
+        <a href="{{ url_for('listar_cursos') }}">Gerenciar Cursos</a>
+        <a href="{{ url_for('listar_alunos') }}">Gerenciar Alunos</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

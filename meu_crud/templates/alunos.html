@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Alunos</h1>
+        <a href="{{ url_for('novo_aluno') }}" class="novo-curso-btn">Novo Aluno</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Curso</th>
+                <th>Ações</th>
+            </tr>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.id }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.matricula }}</td>
+                <td>{{ aluno.curso.nome }}</td>
+                <td>
+                    <a href="{{ url_for('editar_aluno', id=aluno.id) }}">Editar</a>
+                    <a href="{{ url_for('deletar_aluno', id=aluno.id) }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{{ url_for('index') }}">Voltar</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

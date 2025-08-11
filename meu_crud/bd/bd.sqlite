@@ -1,0 +1,13 @@
+CREATE TABLE curso (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    vagas INTEGER NOT NULL
+);
+
+CREATE TABLE aluno (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    matricula TEXT NOT NULL UNIQUE,
+    curso_id INTEGER NOT NULL,
+    FOREIGN KEY (curso_id) REFERENCES curso(id)
+);
